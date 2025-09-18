@@ -29,3 +29,10 @@ Memory:
 * Variables are deallocated when they are popped off the stack or go out of scope.
 * Allocated memory remains in the heap, and remains allocated until `delete` is called 
 * If the memory is not deleted, then it will cause a **memory leak** and the program will eventually fail. 
+
+**Arrays:**
+```C++
+Node *nodeArray = new Node[10];
+...
+delete [] nodeArray;
+```
