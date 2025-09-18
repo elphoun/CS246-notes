@@ -1,4 +1,5 @@
-**Recall:** Pass-by-const-ref over pass-by-value for anything larger than a pointer. Unless the function needs to make a copy anyways, in which case use pass-by-value
+**Recall:** We prefer **pass-by-const-ref** over **pass-by-value** for anything larger than a pointer. Unless the function needs to make a copy anyways, in which case use pass-by-value.
+
 
 ```C++
 int f(int &n); 
@@ -10,6 +11,7 @@ g(5); // valid since n cannot be changed. 5 is stored in a temporary location on
 
 In the case of `istream foperator >> (istream &in, int &n);` the stream is being passed and returned by reference to save copying. This is important because stream variables are not allowed to be copied. 
 
+---
 In C, we dealt with `malloc`. **WE WILL NOT BE USING THIS IN C++**
 ```C
 int *p  = malloc(n * sizeof(int));
@@ -41,13 +43,16 @@ delete [] nodeArray;
 
 **Returning by Value/Pointer/Reference**
 ```C++
-// this is a comparatively expensive call. n is copied to the stack on return
+/* 
+this is a comparatively expensive call. n is copied to the stack on return 
+This is still the one you should pick though (so idk why he went through so many iterations) but will cover in later class. 
+*/
 Node getMeNode() { 
 	Node n;
 	return n;
 } 
 
-// these are invalid. Never return the address or reference of a locally defined variable. 
+/* these are invalid. Never return the address or reference of a locally defined variable */
 Node *getMeNode() {
 	Node n; //  pushed off the stack once returned
 	return &n;
@@ -57,6 +62,38 @@ Node &getMeNode() {
 	return n;
 }
 
+/*
+It is ok for an operator (i.e. >>) to return an istream& because the variable is not local. 
+In other words, references can be returned from a function as long as it was not defined in the function's callstack
+This iteration of getMeNode returns a pointer to heap data, meaning it is still alive
+It still needs to be deleted after use
+*/ 
+Node *getMeNode(){
+	return new Node();
+}
+```
 
+---
+**Operator Overloading**
+C++ gives meaning to operators for different types
+```C++
+struct Vec {
+	int x, y;
+}
 
+Vec operator+(const Vec &v1, const Vec &v2) {
+	Vec v { v1.x + v2.x, v1.y + v2.y };
+	return v;
+}
+
+/*
+note the different types of k and v. This means you might need to define a new version of this that supports the other way around
+To save code and prevent sync issues. We use the original operator. 
+*/
+Vec operator*(const int k, const vec &v) { 
+	return {k * v.x, k * v.y};
+}
+Vec operator*(const vec &v, const int k) { 
+	return k * v;
+}
 ```
