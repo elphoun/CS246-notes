@@ -27,8 +27,10 @@ delete p;
 Memory:
 * All local variables reside on the **stack**
 * Variables are deallocated when they are popped off the stack or go out of scope.
-* Allocated memory remains in the heap, and remains allocated until `delete` is called 
+* Allocated memory remains in the heap, and remains allocated until `delete` is called. Memory allocated with `new` must be freed with `delete`
 * If the memory is not deleted, then it will cause a **memory leak** and the program will eventually fail. 
+* Memory allocated with `new _[_]` must be freed with `delete[]`
+* Combining these will result in **undefined behavior**
 
 **Arrays:**
 ```C++
