@@ -1,0 +1,203 @@
+{
+  "main": {
+    "id": "9e94be2ea8755491",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ee706aaa9716ea0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f6f947d318f5a7a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Datatypes/Constants.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Constants"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7c60912e7cb84887",
+    "type": "split",
+    "children": [
+      {
+        "id": "d0504004c8bc066f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9138aaf334d17adc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "df79547b657af8a8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "77bde3688a891a80",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b00238f7cccb7336",
+    "type": "split",
+    "children": [
+      {
+        "id": "2302c36c7af0bc28",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "68a238fb792404bf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Datatypes/Constants.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Constants"
+            }
+          },
+          {
+            "id": "bdbb7e7ce3906049",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Introduction to OOP.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Introduction to OOP"
+            }
+          },
+          {
+            "id": "0d193c1a0d02b172",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "8405b7066ecf6612",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Datatypes/Constants.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Constants"
+            }
+          },
+          {
+            "id": "cd5a8ec44d6397ae",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "5f6f947d318f5a7a",
+  "lastOpenFiles": [
+    "Lecture Smth idk Im just grouping these for claire.md",
+    "Untitled.base",
+    "Untitled.md",
+    "obsidian-git-2.35.0/obsidian-git/manifest.json",
+    "obsidian-git-2.35.0/obsidian-git/styles.css",
+    "obsidian-git-2.35.0/obsidian-git/main.js",
+    "obsidian-git-2.35.0/obsidian-git",
+    "obsidian-git-2.35.0",
+    "obsidian-git-2.35.0.zip",
+    "Introduction to C++.md",
+    "Datatypes/Structures.md",
+    "Datatypes/References.md",
+    "Datatypes/NullPTR.md",
+    "Datatypes/Constants.md",
+    "Introduction to OOP.md",
+    "Input and Output.md",
+    "Datatypes"
+  ]
+}

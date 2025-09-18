@@ -1,0 +1,9 @@
+{
+  "baseFontSize": 14,
+  "monospaceFontFamily": "Times",
+  "textFontFamily": "Times",
+  "interfaceFontFamily": "Times",
+  "cssTheme": "Atom",
+  "accentColor": "#9eabe0",
+  "theme": "moonstone"
+}
