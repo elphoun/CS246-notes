@@ -38,3 +38,25 @@ Node *nodeArray = new Node[10];
 ...
 delete [] nodeArray;
 ```
+
+**Returning by Value/Pointer/Reference**
+```C++
+// this is a comparatively expensive call. n is copied to the stack on return
+Node getMeNode() { 
+	Node n;
+	return n;
+} 
+
+// these are invalid. Never return the address or reference of a locally defined variable. 
+Node *getMeNode() {
+	Node n; //  pushed off the stack once returned
+	return &n;
+}
+Node &getMeNode() {
+	Node n; // references are the same. 
+	return n;
+}
+
+
+
+```
