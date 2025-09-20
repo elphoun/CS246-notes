@@ -79,7 +79,7 @@ C++ gives meaning to operators for different types
 ```C++
 struct Vec {
 	int x, y;
-}
+};
 
 Vec operator+(const Vec &v1, const Vec &v2) {
 	Vec v { v1.x + v2.x, v1.y + v2.y };
@@ -95,5 +95,50 @@ Vec operator*(const int k, const vec &v) {
 }
 Vec operator*(const vec &v, const int k) { 
 	return k * v;
+}
+```
+
+A special case of this comes with the `>>` and `<<` operators. For instance:
+```C++
+struct Grade {
+	int grade;
+};
+
+ostream &operator<<(ostream &out, const Grade &g) {
+	out << g.grade << '%';
+	return out;
+}
+istream &operator>>(istream &in, grade &g) {
+	in >> g.grade;
+	if (g.grade < 0) {g.grade = 0;} 
+	else if (g.grade > 100) {g.grade = 100;}
+	return in;
+}
+```
+
+---
+**Seperate Compilation**
+Programs should be split into **modules**. Each file should contain
+* **interface:** Type definitions and headers for the functions.
+* **implementation:** Full definition of the program and each provided function in the interface
+
+There are 2 ways to create variables:
+* **Declaration:** Asserts existence of a variable
+* **Definition:** Declares a variable and assigns it a value
+
+```C++
+// in the interface file (vec.cc)
+export module vec; // indicates that this is the module interface
+export struct Vec {
+	int x, y;
+};
+export Vec operator+(const Vec &v1, const Vec &v2);
+
+// in the main file (main.cc)
+import vec;
+int main() {
+	Vec v {1, 2};
+	v = v + v;
+	...
 }
 ```
