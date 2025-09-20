@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3ee706aaa9716ea0",
+        "id": "b78e507983259cc2",
         "type": "tabs",
         "children": [
           {
-            "id": "5f6f947d318f5a7a",
+            "id": "91da628591e35a5a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture Smth idk Im just grouping these for claire.md",
+                "file": "List of Imports.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lecture Smth idk Im just grouping these for claire"
+              "title": "List of Imports"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "b00238f7cccb7336",
@@ -180,24 +180,29 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f6f947d318f5a7a",
+  "active": "91da628591e35a5a",
   "lastOpenFiles": [
+    "Modularity.md",
+    "Key Concepts/Input and Output.md",
+    "Datatypes/Structures.md",
+    "Datatypes/NullPTR.md",
+    "Datatypes/References.md",
+    "List of Imports.md",
+    "C and C++.md",
+    "Key Concepts/Overloading.md",
+    "Key Concepts/Memory.md",
     "Datatypes/Constants.md",
+    "Key Concepts",
     "Lecture Smth idk Im just grouping these for claire.md",
+    "Introduction to OOP.md",
+    "Untitled.canvas",
     "Untitled.base",
-    "Untitled.md",
     "obsidian-git-2.35.0/obsidian-git/manifest.json",
     "obsidian-git-2.35.0/obsidian-git/styles.css",
     "obsidian-git-2.35.0/obsidian-git/main.js",
     "obsidian-git-2.35.0/obsidian-git",
     "obsidian-git-2.35.0",
     "obsidian-git-2.35.0.zip",
-    "Introduction to C++.md",
-    "Datatypes/Structures.md",
-    "Datatypes/References.md",
-    "Datatypes/NullPTR.md",
-    "Introduction to OOP.md",
-    "Input and Output.md",
     "Datatypes"
   ]
 }

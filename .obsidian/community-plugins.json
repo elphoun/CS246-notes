@@ -1,3 +1,6 @@
 [
-  "obsidian-git"
+  "obsidian-git",
+  "prettier",
+  "obsidian-icon-folder",
+  "multi-line-formatting"
 ]

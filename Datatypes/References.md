@@ -1,38 +1,54 @@
-C++ has another pointer-like type known as **references**.  
-* These are similar to constant pointers with automatic dereferencing. 
+## Definition
+
+**References** are a pointer-like type exclusive to C++. They are similar to constant pointers with automatic dereferencing.
+
 ```C++
-cin >> x; // correct
-cin >> &x; // incorrect
+// References are defined using the '&' symbol
+int x = 10;
+int& ref = x;
+
+// note that this '&' is different from the one used to get variable addresses for pointers.
+int &z; // declaring a reference
+int *p = &z; // declaring an address
 ```
 
-References are the reason why `cin >> x` works. 
-```
-istream &operator >> (istream &in, int &n);
-```
-The stream uses a reference because reading large arguments is an expensive process.
+References are the reason why `cin >> x` works. The stream uses a reference to lessen the cost of reading large inputs.
+
 ```C++
+istream &operator >> (istream &in, int &n);
+
+cin >> x; // correct call
+cin >> &x; // incorrect call
+
 struct ReallyBig {};
 int f (ReallyBig rb) {}; // slow call since it copies each time
 int g (ReallyBig &rb) {}; // much faster call since it takes the address from memory
 int h (const ReallyBig &rb) {}; // simialrly fast call but guarantees that h does not change
 ```
 
-References behave exactly like their reference. This means that the the reference is an **alias** for y
+References behave exactly like the variable they are referencing. This means that the the reference is an **alias** for y.
+
 ```C++
 int y = 10;
-int *const z = &y; 
+int *const z = &y;
 z = 12 // changes the value of y
 int *p = &z; // p is not the address of y
 ```
 
-If the `&` is being used to declare a variable, then it is a reference. If it appears in an expression, then it is an address of another variable. 
+**L-Values (Left-Values)** are expressions that have an identifiable location in memory, while **R-Values (Right Values)** are expression that have no identifiable location in memory. They are named after their placement when assigning values to variables.
+
 ```C++
-int &z; // declaring a reference
-int *p = &z; // declaring an address 
+int a;
+a = 1; // valid, since 'a' is a l-value
+
+int b;
+9 = b; // invalid, since 9 in a constant r-value that cannot be changed
 ```
 
-**l-values** are expressions that refer to to memory locations.
-* References can be passed as function parameters
+## In Functions
+
+References can be passed as function parameters like pointers.
+
 ```C++
 void inc(int &n) { ++n; } // sets up n as a reference with the &
 
@@ -41,9 +57,44 @@ inc(x);
 cout << x; // prints 6
 ```
 
-**Restrictions**
-* cannot be left uninitialized
-* Must be initialized to something with a valid address (an l-value)
+Recall that defining and returning a pointer in a function that will be pushed off the stack means that the pointer will be invalid. The same logic applies to references.
+
+```C++
+/*
+this is a comparatively expensive call. n is copied to the stack on return
+This is still the one you should pick though (so idk why he went through so many iterations) but will cover in later class.
+*/
+Node getMeNode() {
+	Node n;
+	return n;
+}
+
+/* these are invalid. Never return the address or reference of a locally defined variable */
+Node *getMeNode() {
+	Node n; //  pushed off the stack once returned
+	return &n;
+}
+Node &getMeNode() {
+	Node n; // references are the same.
+	return n;
+}
+
+/*
+It is ok for an operator (i.e. >>) to return an istream& because the variable is not local.
+In other words, references can be returned from a function as long as it was not defined in the function's callstack
+This iteration of getMeNode returns a pointer to heap data, meaning it is still alive
+It still needs to be deleted after use
+*/
+Node *getMeNode(){
+	return new Node();
+}
+```
+
+## Restrictions of References
+
+- References cannot be left uninitialized since they refer to a section of memory.
+- References must be initialized to a l-value, or something with a valid address
+
 ```C++
 // invalid
 int &x = 3;
@@ -52,12 +103,13 @@ int &x = y + z;
 // valid
 int &x = y;
 ```
-* create a pointer to a reference. The other way around is ok though.
-	* This also means an array of references cannot be created
+
+- References can refer to a pointer, but a pointer cannot point to a reference. This also means an array of references cannot be created
+
 ```C++
 // invalid
 int &*x;
-int &r[3] ={__, __, __}; 
+int &r[3] ={__, __, __};
 // valid
-int *&x = __; 
+int *&x = __;
 ```
