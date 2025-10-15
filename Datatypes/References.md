@@ -1,5 +1,3 @@
-## Definition
-
 **References** are a pointer-like type exclusive to C++. They are similar to constant pointers with automatic dereferencing.
 
 ```C++
@@ -15,7 +13,7 @@ int *p = &z; // declaring an address
 References are the reason why `cin >> x` works. The stream uses a reference to lessen the cost of reading large inputs.
 
 ```C++
-istream &operator >> (istream &in, int &n);
+istream &operator>>(istream &in, int &n);
 
 cin >> x; // correct call
 cin >> &x; // incorrect call
@@ -35,6 +33,14 @@ z = 12 // changes the value of y
 int *p = &z; // p is not the address of y
 ```
 
+Since references and addresses both use `&`, the exact meaning of the symbol can be determined based on the context
+```C++
+void f(int &n); // if the & appears in the type, then it is a referenence
+g(&x); // if the & is part of an expression, then it is an address
+```
+
+## L and R Values
+
 **L-Values (Left-Values)** are expressions that have an identifiable location in memory, while **R-Values (Right Values)** are expression that have no identifiable location in memory. They are named after their placement when assigning values to variables.
 
 ```C++
@@ -45,6 +51,31 @@ int b;
 9 = b; // invalid, since 9 in a constant r-value that cannot be changed
 ```
 
+In C++, R-Values are referenced by `&&` of type node.
+## Restrictions of References
+
+- References cannot be left uninitialized since they refer to a section of memory.
+- References cannot reference another reference
+- References must be initialized to a L-value, or something with a valid address. They cannot be assigned to an R-value
+
+```C++
+// invalid
+int &x = 3;
+int &x = y + z;
+
+// valid
+int &x = y;
+```
+
+- References can refer to a pointer, but a pointer cannot point to a reference. This also means an array of references cannot be created
+
+```C++
+// invalid
+int &*x;
+int &r[3] ={__, __, __};
+// valid
+int *&x = __;
+```
 ## In Functions
 
 References can be passed as function parameters like pointers.
@@ -90,26 +121,7 @@ Node *getMeNode(){
 }
 ```
 
-## Restrictions of References
-
-- References cannot be left uninitialized since they refer to a section of memory.
-- References must be initialized to a l-value, or something with a valid address
-
-```C++
-// invalid
-int &x = 3;
-int &x = y + z;
-
-// valid
-int &x = y;
-```
-
-- References can refer to a pointer, but a pointer cannot point to a reference. This also means an array of references cannot be created
-
-```C++
-// invalid
-int &*x;
-int &r[3] ={__, __, __};
-// valid
-int *&x = __;
-```
+Generally:
+* By default, stick with **constant l-value reference**
+* If changes should be reflected in the variable, then **pass by reference**
+* If changes are small or you need to a temporary version of the argument, then **pass by value**

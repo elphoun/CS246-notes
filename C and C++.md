@@ -1,42 +1,31 @@
-## Differences
+# Differences with CS136
 
-Imports are in the format `import <iostream>; ` instead of `#include <library_name>`.
+In CS136, the **C99** standard was used. In this course, the **C++20** standard is used.
 
-- The lack of `#` indicates that we are not doing anything with the preprocessor
+## List of Changes:
 
-```C
-// example in C
-#include <stdio.h>
-```
-
-```C++
-// example in C++
-import <iostream>;
-```
-
-`using namespace std` is used as an alternative to `std::`. This is similar to how libraries in python support either directly importing the function or using the format `<module>.<func_name>`
-
-Most code in C can be directly translated over to C++. However, the conventions that C++ uses are different from the ones in C.
-
-- In C, Hello World can be printed like:
+- Imports are in the form `import <library_name>;` instead of `#include <library_name>;`. This speeds up the compiling time by ensuring all libraries are compiled once manually then cached for use in the future.
+- Instead of `printf`, and `scanf` we use `cout` and `cin` for the `stdin` and `stdout` [[Streams]] .
+- `std::` is used at the beginning of most functions to indicate that they are from the standard library to avoid [[Overloading]]. Since this is tedious, C++ uses `using namespace std` to indicate that all functions without this preface are called from the standard library.
 
 ```C
+// In C
 #include <stdio.h>
 int main() {
-	printf("Hello World\n");
-	return 0;
+	char c;
+	scanf("%d", &c);
+	printf("The value of c is: %d\n", c);
 }
 ```
 
-- This is also valid in C++, but not all code in C can be directly transferred to C++
-
 ```C++
+// In C++
 import <iostream>;
 using namespace std;
-
 int main() {
-	cout << "Hello World!" << endl;
-	return 0;
+	char c;
+	cin >> c;
+	cout << "The value of c is: " << c << endl;
 }
 ```
 
@@ -46,13 +35,6 @@ int main() {
 
 - `0` indicates that the program is valid
 - The `return` can be omitted from main by default, it will automatically return `0`
-
-In C++, strings can be printed using a **buffer system**. The buffer system improves performance by delaying the output until all of the characters/content to print can be transferred out.
-
-```C++
-std::cout << ___ << ___ << ... // Adds item to the buffer system.
-std::endl = end-of-line // Prints the end of line and flushes the buffer (forces all items to print)
-```
 
 **Pass-by-value** receives a copy of x and mutates the copy. The original **does not change**.
 
@@ -87,4 +69,3 @@ g(5); // valid since n cannot be changed. 5 is stored in a temporary location on
 ```
 
 In the case of `istream foperator >> (istream &in, int &n);` the stream is being passed and returned by reference to save copying. This is important because stream variables are not allowed to be copied.
-

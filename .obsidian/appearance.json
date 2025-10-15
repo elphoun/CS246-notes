@@ -1,8 +1,8 @@
 {
   "baseFontSize": 14,
-  "monospaceFontFamily": "Times",
-  "textFontFamily": "Times",
-  "interfaceFontFamily": "Times",
+  "monospaceFontFamily": "Cascadia Code",
+  "textFontFamily": "Bahnschrift",
+  "interfaceFontFamily": "Bahnschrift",
   "cssTheme": "Atom",
   "accentColor": "#9eabe0",
   "theme": "obsidian"
