@@ -1,4 +1,4 @@
-Strings in C are an array of `char` terminated by a null terminator (`\0`). There are a few disadvantages to this approach
+Strings in C (**C-Style Strings**) are an array of `char` terminated by a null terminator (`\0`). There are a few disadvantages to this approach
 
 - High risk with memory management
 - The array needs to account for `\0`, and it cannot be overwritten
@@ -16,7 +16,7 @@ int main() {
 }
 ```
 
-In `string`, many operations that make more intuitive sense can be used
+In `string`, many [[Overloading|overloaded]] operations that make more intuitive sense can be used
 
 ```C++
 s1 == s2, s1 != s2, s1 > s2, s1 < s2 // comparison of strings

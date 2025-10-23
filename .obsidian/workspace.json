@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "cab13706aef6b482",
+        "id": "6cd02e430c924f99",
         "type": "tabs",
         "children": [
           {
-            "id": "41a545d7ca361175",
+            "id": "77f869a02f2160fb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Key Concepts/Range-Based For Loops.md",
+                "file": "Datatypes/Classes and Objects.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Range-Based For Loops"
+              "title": "Classes and Objects"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "^",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -180,29 +180,69 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9138aaf334d17adc",
+  "floating": {
+    "id": "95a1d9a7818135a6",
+    "type": "floating",
+    "children": [
+      {
+        "id": "8d5d2fe8ada7fc8f",
+        "type": "window",
+        "children": [
+          {
+            "id": "7dc916ed3a25a4d6",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "a232c0428bc4d982",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "List of Imports.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "List of Imports"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 816,
+        "maximize": false,
+        "zoom": -1
+      }
+    ]
+  },
+  "active": "77f869a02f2160fb",
   "lastOpenFiles": [
-    "Key Concepts/Three-Way Comparison.md",
-    "Key Concepts/Invariants, Encapsulation, and Iterator Patterns.md",
-    "Key Concepts/Command Line Arguments.md",
+    "Untitled.md",
     "Datatypes/Classes and Objects.md",
+    "Key Concepts/Invariants, Encapsulation, and Iterator Patterns.md",
     "Key Concepts/Range-Based For Loops.md",
+    "Key Concepts/Three-Way Comparison.md",
+    "Datatypes/References.md",
+    "Datatypes/Structures.md",
+    "Key Concepts/Modularity.md",
+    "C and C++.md",
+    "Datatypes/Constants.md",
+    "Key Concepts/Command Line Arguments.md",
+    "Datatypes/NullPTR.md",
+    "Key Concepts/Overloading.md",
+    "Key Concepts/Default Function Arguments.md",
+    "Key Concepts/Streams.md",
+    "List of Imports.md",
     "Datatypes/Strings.md",
     "Key Concepts/Memory.md",
     "Iterator Patterns.md",
-    "Datatypes/Structures.md",
-    "Key Concepts/Default Function Arguments.md",
-    "Datatypes/Constants.md",
     "Objects.md",
-    "Datatypes/NullPTR.md",
     "Key Concepts/Ternary Operator.md",
-    "Key Concepts/Modularity.md",
-    "Key Concepts/Streams.md",
-    "C and C++.md",
-    "Key Concepts/Overloading.md",
     "Key Concepts/Returning.md",
-    "List of Imports.md",
-    "Datatypes/References.md",
     "Datatypes/R and L Values.md",
     "Key Concepts/Input and Output.md",
     "Untitled",

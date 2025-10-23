@@ -26,6 +26,9 @@ There are 2 ways to read from these streams: input and file stream. These are re
     - Another command, `cin.ignore();` discards the current character and goes to the next position.
 
 ## Examples and Extra Cases
+```C++
+if (cin) // returns true if there are no errors. False if either fail or EOF bits are true. 
+```
 
 ```C++
 // Reading into 2 variables at once will read one input, then another
@@ -33,7 +36,7 @@ import <iostream>;
 using namespace std;
 int main() {
 	int x, y;
-	cin >> x >> y;
+	cin >> x >> y; // cin >> x is run first, then cin is returned then >> y;
 	cout << x << y << endl;
 }
 
@@ -48,11 +51,11 @@ using namespace std;
 int main() {
 	int x;
 	while (true) {
-		if (cin >> x) { cout << x << endl; }
+		if (cin >> x) { cout << x << endl; } // if fails, then there is a failbit
 		else if (cin.eof()) { break; }
 		else {
-			cin.clear();
-			cin.ignore();
+			cin.clear(); // clears the failbit and is reset
+			cin.ignore(); // ignores the current output and does not use it
 		}
 	}
 }
@@ -157,6 +160,9 @@ argv is an array of C-style strings.
 	argv[0] = program name
 	argv[1 - (n - 1)] = 1st argument
 	argv[n] = null
+	
+Note that some arguments are considered 1 despite looking like multiple 
+./q3execs -m test.in < test1.in contains 3 arguments (q3execs, -m, and test.in < test1.in), not 5. 
 */
 ```
 

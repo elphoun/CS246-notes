@@ -1,4 +1,4 @@
-**Default Function Arguments** are arguments that are automatically substituted if one is not provided
+**Default Function Arguments (DFA)** are arguments that are automatically substituted if one is not provided
 
 - DFA's must be placed last in the argument list.
 

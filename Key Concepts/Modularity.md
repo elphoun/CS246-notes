@@ -7,9 +7,9 @@ Programs are be split into **modules** with multiple files fulfilling different 
 
 - **interface:** Type definitions and headers for the functions.
 	- To export the module, use the syntax `export module <module>`
-	- All functions in the 
+	- All functions and classes should have the `export` keyword
 - **implementation:** Full definition of the program and each provided function in the interface
-	- To indicate that the module is in this file, use the syntax `module `
+	- To indicate that the module is in this file, use the syntax `module`
 
 In C++20, there is a new convention for the interface file. Instead of `.h`, we still use `.cc`
 ```C++
@@ -42,7 +42,7 @@ int main() {
 g++20m -c <file_name>.cc
 ```
 
-Files should be compiled in **dependency order**, so interface files, then implementation.
+Files should be compiled in **dependency order**, so interface files, then implementation, then the main file. 
 ```
 // Example from Before
 g++20m -c vec.cc

@@ -3,6 +3,9 @@
 **Invariants** are properties of a data structure that are always assumed to be true.
 **Encapsulation** provides a solution to users violating invariants. C++ uses `public` and `private` to ensure that underlying data is not interacted with (i.e. **black box**). This abstracts the information and makes it hard to mess around with.
 
+- `public` fields/methods can be accessed anywhere
+- `private` fields/methods can only be called within other class methods.
+
 ```C++
 struct Vec {
 	private: // only accessible from inside Vec
@@ -60,7 +63,7 @@ int &List::ith(int i) {
 
 # Iterator Patterns
 
-**Iterator Patterns** are a design pattern that maintain encapsulation with fast iteration. Without iterator patterns, looping through the list happens in $O(n^2)$ time. 
+**Iterator Patterns** are a design pattern that maintain encapsulation with fast iteration. Without iterator patterns, looping through the list happens in $O(n^2)$ time.
 
 - In linked lists, this guarantees that `next` is either a `ListNode` or `nullptr` while also not exposing the actual pointers
 
@@ -104,6 +107,77 @@ int main() {
 	l.addToFront(3);
 	for (List::Iterator it=l.begin; it!=l.end(); ++it) {
 		cout << *it << "";
-	} // runs in O(n) time 
+	} // runs in O(n) time
 }
+```
+
+Classes with `begin` and `end` methods return some iterator type and either a `++`, `!=`, or `*` operator can use a **range-based for loop**
+
+```C++
+// n is a copy of l (ListNode)
+for (int n : l) {
+	cout << n << endl;
+}
+
+// references the data itself and modifies it
+for (int &n : l) {
+	++n;
+}
+```
+
+# Friends
+
+A flaw with this Iterator is the statement `auto it = List::Iterator{nullptr};`. It creates a valid iterator with `nullptr` that was not made by either `begin` nor `end`. This breaks encapsulation since only `List` should control how its iterators are made.
+
+The **Friend Class** solves this issue by giving `List` special access to `Iterator`. Use the keyword `friend` to declare a class to be a friend class.
+
+```C++
+class Iterator {
+	Node *cur;
+	Iterator(Node *cur): cur{cur} {}
+
+	public:
+		friend class List; // List can access private fields in Iterator
+
+		Iterator& operator++() {
+			cur = cur->next;
+			return *this;
+		}
+		bool operator!=(const Iterator& other) const {
+			return cur != other.cur;
+		}
+		int& operator*() const {
+			return cur->data;
+		}
+};
+```
+
+Functions can also be part of the friend group.
+
+```C++
+class Vec {
+	int x, y;
+	public:
+		friend ostream& operator<<(ostream& out, const Vec& v);
+};
+
+ostream& operator<<(ostream& out, const Vec& v) {
+    return out << "(" << v.x << ", " << v.y << ")"; // can still access x and y since its declared as a friend
+}
+```
+
+# Accessors and Mutators
+
+**Accessors and Mutators** provide controlled access to private variables so that variables can remain private and be modified/obtained safely.
+
+```C++
+class Vec {
+	int x, y;
+
+	public:
+		int getX() const { return x; }
+		void setX(int a) { x = a; }
+		int getY() const { return y; }
+		void setY(int b) { y = b; }
+};
 ```
